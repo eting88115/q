@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="WebContent/before-login"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk-11.0.9">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/USER/Desktop/UCanAccess-5.0.0-bin (1)/UCanAccess-5.0.0-bin/lib/commons-lang3-3.8.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/USER/Desktop/UCanAccess-5.0.0-bin (1)/UCanAccess-5.0.0-bin/lib/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/USER/Desktop/UCanAccess-5.0.0-bin (1)/UCanAccess-5.0.0-bin/lib/hsqldb-2.5.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/USER/Desktop/UCanAccess-5.0.0-bin (1)/UCanAccess-5.0.0-bin/lib/jackcess-3.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/USER/Desktop/UCanAccess-5.0.0-bin (1)/UCanAccess-5.0.0-bin/ucanaccess-5.0.0.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>
