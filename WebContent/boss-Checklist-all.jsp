@@ -109,18 +109,7 @@
              </div>
     </div> 
 </div>
-                 <!-- 待審核的內容 --->
-                   <div class="content content2">
-                    <%@ include file="boss-Checklist-waiting.jsp" %>
-                   </div>
-                   <!-- 通過的內容 --->
-                   <div class="content content3">
-                   <%@ include file="boss-Checklist-Pass.jsp" %>
-                   </div>
-                   <!-- 未通過的內容 --->
-                   <div class="content content4">
-                   <%@ include file="boss-Checklist-NoPass.jsp" %>
-                   </div>
+                 
                  </div>
            </div>
           
