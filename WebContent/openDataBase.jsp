@@ -11,7 +11,7 @@
 <%
 
    Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-    Connection con=DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\yun ping\\Desktop\\2020.11.22最新\\aaa\\WebContent\\database.accdb;");
+    Connection con=DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\yun ping\\Desktop\\新增資料夾\\q\\database.accdb;");
 	if(con.isClosed())
 		out.println("資料庫已經關閉!<br>");
 	else

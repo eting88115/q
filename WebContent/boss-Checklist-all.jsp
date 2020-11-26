@@ -68,17 +68,12 @@
                                           </div>
                       <hr>
                                           <%
-	// Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-	// Connection con =DriverManager.getConnection("jdbc:odbc:dataBase") ;
 	Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-<<<<<<< HEAD
-	Connection con=DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\Ting\\eclipse-workspace\\aaa\\database.accdb;");
-=======
-	Connection con=DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\yun ping\\Desktop\\2020.11.22最新\\aaa\\WebContent\\database.accdb;");
->>>>>>> branch 'master' of https://github.com/eting88115/aaa.git
+	Connection con=DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\yun ping\\Desktop\\新增資料夾\\q\\database.accdb;");
 	Statement smt= con.createStatement();
-	String sql = "SELECT * FROM studenApply ";
+	String sql = "SELECT 序號, 班級, 學號, 姓名, 住址, 審核狀態 FROM studentApply";
 	ResultSet rs = smt.executeQuery(sql);
+	
 	%>
       </form>
             <div class="FindApply">
