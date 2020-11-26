@@ -67,8 +67,10 @@
                                              <input type="text" id="findAccount" class="findAccount" placeholder="輸入搜索學號">
                                           <input type="submit"  value="搜索">
                                           <input type="reset" value="清除">
-                                          </div>
-                      <hr>
+                                     </div>
+                                 </form>
+                      <hr>      
+                      
                                           <%
 	Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
 	Connection con=DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\yun ping\\Desktop\\新增資料夾\\q\\database.accdb;");
@@ -77,7 +79,7 @@
 	ResultSet rs = smt.executeQuery(sql);
 	
 	%>
-      </form>
+    
             <div class="FindApply">
             <table class="FindApply">
                <caption class="title">學生申請資料-全部</caption>
@@ -102,6 +104,7 @@
                          <td><%=rs.getString("審核狀態") %></td>
                          <td><button class="edit" data-toggle="modal" data-target="#layer">編輯</button></td>
                       </tr>
+                      <%} %>
              </table>
              </div>
     </div> 
@@ -110,7 +113,7 @@
                  <div class="content content2">
                  <hr>
                          <div class="findstu">
-                                <form role="box" action="(new)boss-CheckList.jsp" method="get">
+                                <form role="box" action="" method="get">
                                     <div class="find-group">
                                           <label for="find">搜尋班級:</label>
                                              <input type="text" id="findClass" class="findClass" placeholder="輸入搜索班級">
@@ -118,15 +121,19 @@
                                              <input type="text" id="findAccount" class="findAccount" placeholder="輸入搜索學號">
                                           <input type="submit"  value="搜索">
                                           <input type="reset" value="清除">
-                                          </div>
+                                     </div>
+                                 </form>
                       <hr>
                                           <%
 	Statement smt2 = con.createStatement();
-	String sql2 = "SELECT 序號, 班級, 學號, 姓名, 住址, 審核狀態 FROM studentApply 待審核 ";
-	ResultSet rs2 = smt.executeQuery(sql);
+    Statement smt21 = con.createStatement();
+	String sql2 = "SELECT 序號, 班級, 學號, 姓名, 住址, 審核狀態 FROM studentApply where 審核狀態=2";
+	String sql21="select reviewStatus from reviewStatus where reviewID=2";
+	ResultSet rs2 = smt2.executeQuery(sql2);
+	ResultSet rs21 = smt21.executeQuery(sql21);
 	%>
-      </form>
-            <div class="FindApply2">
+     
+            <div class="FindApply">
             <table class="FindApply">
                <caption class="title">學生申請資料-待審核</caption>
                  
@@ -139,24 +146,28 @@
                      <th class="text-center" scope="col" width="15%">審核狀態</th>
                      <th class="text-center" scope="col" width="15%">操作</th>
                   </tr>
+                <%while(rs2.next()){%>  
                       <tr> 
-                         <td><%=rs.getString("序號") %></td> 
-                         <td><%=rs.getString("班級") %></td>
-                         <td><%=rs.getString("學號") %></td>
-                         <td><%=rs.getString("姓名") %></td>
-                         <td><%=rs.getString("住址") %></td>
-                         <td><%=rs.getString("審核狀態") %></td>
+                         <td><%=rs2.getString("序號") %></td> 
+                         <td><%=rs2.getString("班級") %></td>
+                         <td><%=rs2.getString("學號") %></td>
+                         <td><%=rs2.getString("姓名") %></td>
+                         <td><%=rs2.getString("住址") %></td>
+                         <%while(rs21.next()){%>
+                         <td><%=rs21.getString("reviewStatus") %></td>
+                           <%} %>
                          <td><button class="edit" data-toggle="modal" data-target="#layer">編輯</button></td>
                       </tr>
-                      
+                   <%} %>   
              </table>
              </div>
     </div>
+   </div>
                  <!-- 通過審核 -->
-                 <div class="content content3">
+                <div class="content content3">
                  <hr>
                          <div class="findstu">
-                                <form role="box" action="(new)boss-CheckList.jsp" method="get">
+                                <form role="box" action="" method="get">
                                     <div class="find-group">
                                           <label for="find">搜尋班級:</label>
                                              <input type="text" id="findClass" class="findClass" placeholder="輸入搜索班級">
@@ -164,17 +175,18 @@
                                              <input type="text" id="findAccount" class="findAccount" placeholder="輸入搜索學號">
                                           <input type="submit"  value="搜索">
                                           <input type="reset" value="清除">
-                                          </div>
+                                     </div>
+                                 </form>
                       <hr>
                                           <%
 	Statement smt3 = con.createStatement();
-	String sql3 = "SELECT 序號, 班級, 學號, 姓名, 住址, 審核狀態 FROM studentApply 通過 ";
-	ResultSet rs3 = smt.executeQuery(sql);
+	String sql3 = "SELECT 序號, 班級, 學號, 姓名, 住址, 審核狀態 FROM studentApply where 審核狀態=1";
+	ResultSet rs3 = smt3.executeQuery(sql3);
 	%>
-      </form>
-            <div class="FindApply3">
+     
+            <div class="FindApply">
             <table class="FindApply">
-               <caption class="title">學生申請資料-通過</caption>
+               <caption class="title">學生申請資料-待審核</caption>
                  
                   <tr> 
                      <th class="text-center" scope="col" width="10%">序號</th> 
@@ -185,24 +197,26 @@
                      <th class="text-center" scope="col" width="15%">審核狀態</th>
                      <th class="text-center" scope="col" width="15%">操作</th>
                   </tr>
+                <%while(rs3.next()){%>  
                       <tr> 
-                         <td><%=rs.getString("序號") %></td> 
-                         <td><%=rs.getString("班級") %></td>
-                         <td><%=rs.getString("學號") %></td>
-                         <td><%=rs.getString("姓名") %></td>
-                         <td><%=rs.getString("住址") %></td>
-                         <td><%=rs.getString("審核狀態") %></td>
+                         <td><%=rs3.getString("序號") %></td> 
+                         <td><%=rs3.getString("班級") %></td>
+                         <td><%=rs3.getString("學號") %></td>
+                         <td><%=rs3.getString("姓名") %></td>
+                         <td><%=rs3.getString("住址") %></td>
+                         <td><%=rs3.getString("審核狀態") %></td>
                          <td><button class="edit" data-toggle="modal" data-target="#layer">編輯</button></td>
                       </tr>
-                      
+                   <%} %>   
              </table>
              </div>
-                 </div>
+    </div>
+    </div>
                  <!-- 未通過審核 -->
                  <div class="content content4">
                  <hr>
                          <div class="findstu">
-                                <form role="box" action="(new)boss-CheckList.jsp" method="get">
+                              <form role="box" action="" method="get">
                                     <div class="find-group">
                                           <label for="find">搜尋班級:</label>
                                              <input type="text" id="findClass" class="findClass" placeholder="輸入搜索班級">
@@ -210,15 +224,16 @@
                                              <input type="text" id="findAccount" class="findAccount" placeholder="輸入搜索學號">
                                           <input type="submit"  value="搜索">
                                           <input type="reset" value="清除">
-                                          </div>
+                                     </div>
+                                 </form>
                       <hr>
                                          <%
 	Statement smt4 = con.createStatement();
-	String sql4 = "SELECT 序號, 班級, 學號, 姓名, 住址, 審核狀態 FROM studentApply 未通過 ";
-	ResultSet rs4 = smt.executeQuery(sql);
+	String sql4 = "SELECT 序號, 班級, 學號, 姓名, 住址, 審核狀態 FROM studentApply where 審核狀態=3";
+	ResultSet rs4 = smt4.executeQuery(sql4);
 	%>
-      </form>
-            <div class="FindApply4">
+    
+            <div class="FindApply">
             <table class="FindApply">
                <caption class="title">學生申請資料-未通過</caption>
                  
@@ -231,16 +246,17 @@
                      <th class="text-center" scope="col" width="15%">審核狀態</th>
                      <th class="text-center" scope="col" width="15%">操作</th>
                   </tr>
+                  <%while(rs4.next()){%> 
                       <tr> 
-                         <td><%=rs.getString("序號") %></td> 
-                         <td><%=rs.getString("班級") %></td>
-                         <td><%=rs.getString("學號") %></td>
-                         <td><%=rs.getString("姓名") %></td>
-                         <td><%=rs.getString("住址") %></td>
-                         <td><%=rs.getString("審核狀態") %></td>
+                         <td><%=rs4.getString("序號") %></td> 
+                         <td><%=rs4.getString("班級") %></td>
+                         <td><%=rs4.getString("學號") %></td>
+                         <td><%=rs4.getString("姓名") %></td>
+                         <td><%=rs4.getString("住址") %></td>
+                         <td><%=rs4.getString("審核狀態") %></td>
                          <td><button class="edit" data-toggle="modal" data-target="#layer">編輯</button></td>
                       </tr>
-                      
+                    <%} %> 
              </table>
              </div>
              </div>
@@ -255,7 +271,7 @@
  </div>
 </div>
 <br></br>
- <%}	
+ <%	
 	con.close();
 	%>
 <!-- Footer -->
