@@ -77,7 +77,9 @@
 	Statement smt= con.createStatement();
 	String sql = "SELECT 序號, 班級, 學號, 姓名, 住址, 審核狀態 FROM studentApply";
 	ResultSet rs = smt.executeQuery(sql);
-	
+	String sql21="select reviewStatus from reviewStatus where reviewID=1";
+	String sql31="select reviewStatus from reviewStatus where reviewID=2";
+	String sql41="select reviewStatus from reviewStatus where reviewID=3";
 	%>
     
             <div class="FindApply">
@@ -127,8 +129,7 @@
                                           <%
 	Statement smt2 = con.createStatement();
     Statement smt21 = con.createStatement();
-	String sql2 = "SELECT 序號, 班級, 學號, 姓名, 住址, 審核狀態 FROM studentApply where 審核狀態=2";
-	String sql21="select reviewStatus from reviewStatus where reviewID=2";
+	String sql2 = "SELECT 序號, 班級, 學號, 姓名, 住址, 審核狀態 FROM studentApply where 審核狀態=1";
 	ResultSet rs2 = smt2.executeQuery(sql2);
 	ResultSet rs21 = smt21.executeQuery(sql21);
 	%>
@@ -180,13 +181,15 @@
                       <hr>
                                           <%
 	Statement smt3 = con.createStatement();
-	String sql3 = "SELECT 序號, 班級, 學號, 姓名, 住址, 審核狀態 FROM studentApply where 審核狀態=1";
+    Statement smt31 = con.createStatement();                           
+	String sql3 = "SELECT 序號, 班級, 學號, 姓名, 住址, 審核狀態 FROM studentApply where 審核狀態=2";
 	ResultSet rs3 = smt3.executeQuery(sql3);
+	ResultSet rs31 = smt31.executeQuery(sql31);
 	%>
      
             <div class="FindApply">
             <table class="FindApply">
-               <caption class="title">學生申請資料-待審核</caption>
+               <caption class="title">學生申請資料-通過</caption>
                  
                   <tr> 
                      <th class="text-center" scope="col" width="10%">序號</th> 
@@ -204,7 +207,9 @@
                          <td><%=rs3.getString("學號") %></td>
                          <td><%=rs3.getString("姓名") %></td>
                          <td><%=rs3.getString("住址") %></td>
-                         <td><%=rs3.getString("審核狀態") %></td>
+                         <%while(rs31.next()){%>
+                         <td><%=rs31.getString("reviewStatus") %></td>
+                           <%} %>
                          <td><button class="edit" data-toggle="modal" data-target="#layer">編輯</button></td>
                       </tr>
                    <%} %>   
@@ -229,8 +234,10 @@
                       <hr>
                                          <%
 	Statement smt4 = con.createStatement();
+    Statement smt41 = con.createStatement();                                  
 	String sql4 = "SELECT 序號, 班級, 學號, 姓名, 住址, 審核狀態 FROM studentApply where 審核狀態=3";
 	ResultSet rs4 = smt4.executeQuery(sql4);
+	ResultSet rs41 = smt41.executeQuery(sql41);
 	%>
     
             <div class="FindApply">
@@ -253,7 +260,9 @@
                          <td><%=rs4.getString("學號") %></td>
                          <td><%=rs4.getString("姓名") %></td>
                          <td><%=rs4.getString("住址") %></td>
-                         <td><%=rs4.getString("審核狀態") %></td>
+                         <%while(rs41.next()){%>
+                         <td><%=rs41.getString("reviewStatus") %></td>
+                           <%} %>
                          <td><button class="edit" data-toggle="modal" data-target="#layer">編輯</button></td>
                       </tr>
                     <%} %> 
