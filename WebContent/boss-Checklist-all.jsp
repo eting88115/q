@@ -55,6 +55,8 @@
                  </div>
                  
                  <div class="content-group">
+                 <!-- 全部 -->
+                 <div class="content content1">
                  <hr>
                          <div class="findstu">
                                 <form role="box" action="" method="get">
@@ -104,9 +106,147 @@
              </div>
     </div> 
 </div>
+                 <!-- 待審核 -->
+                 <div class="content content2">
+                 <hr>
+                         <div class="findstu">
+                                <form role="box" action="(new)boss-CheckList.jsp" method="get">
+                                    <div class="find-group">
+                                          <label for="find">搜尋班級:</label>
+                                             <input type="text" id="findClass" class="findClass" placeholder="輸入搜索班級">
+                                          <label for="find">搜索學號:</label>
+                                             <input type="text" id="findAccount" class="findAccount" placeholder="輸入搜索學號">
+                                          <input type="submit"  value="搜索">
+                                          <input type="reset" value="清除">
+                                          </div>
+                      <hr>
+                                          <%
+	Statement smt2 = con.createStatement();
+	String sql2 = "SELECT 序號, 班級, 學號, 姓名, 住址, 審核狀態 FROM studentApply 待審核 ";
+	ResultSet rs2 = smt.executeQuery(sql);
+	%>
+      </form>
+            <div class="FindApply2">
+            <table class="FindApply">
+               <caption class="title">學生申請資料-待審核</caption>
                  
+                  <tr> 
+                     <th class="text-center" scope="col" width="10%">序號</th> 
+                     <th class="text-center" scope="col" width="10%">班級</th>
+                     <th class="text-center" scope="col" width="15%">學號</th>
+                     <th class="text-center" scope="col" width="10%">姓名</th>
+                     <th class="text-center" scope="col" width="30%">地址</th>
+                     <th class="text-center" scope="col" width="15%">審核狀態</th>
+                     <th class="text-center" scope="col" width="15%">操作</th>
+                  </tr>
+                      <tr> 
+                         <td><%=rs.getString("序號") %></td> 
+                         <td><%=rs.getString("班級") %></td>
+                         <td><%=rs.getString("學號") %></td>
+                         <td><%=rs.getString("姓名") %></td>
+                         <td><%=rs.getString("住址") %></td>
+                         <td><%=rs.getString("審核狀態") %></td>
+                         <td><button class="edit" data-toggle="modal" data-target="#layer">編輯</button></td>
+                      </tr>
+                      
+             </table>
+             </div>
+    </div>
+                 <!-- 通過審核 -->
+                 <div class="content content3">
+                 <hr>
+                         <div class="findstu">
+                                <form role="box" action="(new)boss-CheckList.jsp" method="get">
+                                    <div class="find-group">
+                                          <label for="find">搜尋班級:</label>
+                                             <input type="text" id="findClass" class="findClass" placeholder="輸入搜索班級">
+                                          <label for="find">搜索學號:</label>
+                                             <input type="text" id="findAccount" class="findAccount" placeholder="輸入搜索學號">
+                                          <input type="submit"  value="搜索">
+                                          <input type="reset" value="清除">
+                                          </div>
+                      <hr>
+                                          <%
+	Statement smt3 = con.createStatement();
+	String sql3 = "SELECT 序號, 班級, 學號, 姓名, 住址, 審核狀態 FROM studentApply 通過 ";
+	ResultSet rs3 = smt.executeQuery(sql);
+	%>
+      </form>
+            <div class="FindApply3">
+            <table class="FindApply">
+               <caption class="title">學生申請資料-通過</caption>
+                 
+                  <tr> 
+                     <th class="text-center" scope="col" width="10%">序號</th> 
+                     <th class="text-center" scope="col" width="10%">班級</th>
+                     <th class="text-center" scope="col" width="15%">學號</th>
+                     <th class="text-center" scope="col" width="10%">姓名</th>
+                     <th class="text-center" scope="col" width="30%">地址</th>
+                     <th class="text-center" scope="col" width="15%">審核狀態</th>
+                     <th class="text-center" scope="col" width="15%">操作</th>
+                  </tr>
+                      <tr> 
+                         <td><%=rs.getString("序號") %></td> 
+                         <td><%=rs.getString("班級") %></td>
+                         <td><%=rs.getString("學號") %></td>
+                         <td><%=rs.getString("姓名") %></td>
+                         <td><%=rs.getString("住址") %></td>
+                         <td><%=rs.getString("審核狀態") %></td>
+                         <td><button class="edit" data-toggle="modal" data-target="#layer">編輯</button></td>
+                      </tr>
+                      
+             </table>
+             </div>
                  </div>
-           </div>
+                 <!-- 未通過審核 -->
+                 <div class="content content4">
+                 <hr>
+                         <div class="findstu">
+                                <form role="box" action="(new)boss-CheckList.jsp" method="get">
+                                    <div class="find-group">
+                                          <label for="find">搜尋班級:</label>
+                                             <input type="text" id="findClass" class="findClass" placeholder="輸入搜索班級">
+                                          <label for="find">搜索學號:</label>
+                                             <input type="text" id="findAccount" class="findAccount" placeholder="輸入搜索學號">
+                                          <input type="submit"  value="搜索">
+                                          <input type="reset" value="清除">
+                                          </div>
+                      <hr>
+                                         <%
+	Statement smt4 = con.createStatement();
+	String sql4 = "SELECT 序號, 班級, 學號, 姓名, 住址, 審核狀態 FROM studentApply 未通過 ";
+	ResultSet rs4 = smt.executeQuery(sql);
+	%>
+      </form>
+            <div class="FindApply4">
+            <table class="FindApply">
+               <caption class="title">學生申請資料-未通過</caption>
+                 
+                  <tr> 
+                     <th class="text-center" scope="col" width="10%">序號</th> 
+                     <th class="text-center" scope="col" width="10%">班級</th>
+                     <th class="text-center" scope="col" width="15%">學號</th>
+                     <th class="text-center" scope="col" width="10%">姓名</th>
+                     <th class="text-center" scope="col" width="30%">地址</th>
+                     <th class="text-center" scope="col" width="15%">審核狀態</th>
+                     <th class="text-center" scope="col" width="15%">操作</th>
+                  </tr>
+                      <tr> 
+                         <td><%=rs.getString("序號") %></td> 
+                         <td><%=rs.getString("班級") %></td>
+                         <td><%=rs.getString("學號") %></td>
+                         <td><%=rs.getString("姓名") %></td>
+                         <td><%=rs.getString("住址") %></td>
+                         <td><%=rs.getString("審核狀態") %></td>
+                         <td><button class="edit" data-toggle="modal" data-target="#layer">編輯</button></td>
+                      </tr>
+                      
+             </table>
+             </div>
+             </div>
+             </div>
+             </div>
+             </div>
           
           
           
