@@ -41,7 +41,9 @@
       <h1 class="w3-text-teal"><b>審核申請清單</b></h1>
     </div>
           <div class="template" style="position: relative; height: 460px">
+          <%
           
+          %>
           <div class="panel-group">
               <input type="radio" name="panel-radio" id="radio1" class="panel-control" checked>
               <input type="radio" name="panel-radio" id="radio2" class="panel-control">
@@ -77,9 +79,15 @@
 	Statement smt= con.createStatement();
 	String sql = "SELECT 序號, 班級, 學號, 姓名, 住址, 審核狀態 FROM studentApply";
 	ResultSet rs = smt.executeQuery(sql);
+	Statement smt21 = con.createStatement();
 	String sql21="select reviewStatus from reviewStatus where reviewID=1";
+	ResultSet rs21 = smt21.executeQuery(sql21);
+	Statement sm31 = con.createStatement();
 	String sql31="select reviewStatus from reviewStatus where reviewID=2";
+	ResultSet rs31 = smt31.executeQuery(sql31);
+	Statement sm41 = con.createStatement();
 	String sql41="select reviewStatus from reviewStatus where reviewID=3";
+	ResultSet rs41 = smt41.executeQuery(sql41);
 	%>
     
             <div class="FindApply">
@@ -103,7 +111,15 @@
                          <td><%=rs.getString("學號") %></td>
                          <td><%=rs.getString("姓名") %></td>
                          <td><%=rs.getString("住址") %></td>
-                         <td><%=rs.getString("審核狀態") %></td>
+                         <%if(rs21.next()){%>
+                         <td><%=rs21.getString("reviewStatus") %></td>
+                         <%} %>
+                         <%if(rs31.next()){%>
+                         <td><%=rs31.getString("reviewStatus") %></td>
+                         <%} %>
+                         <%if (rs41.next()){%>
+                         <td><%=rs41.getString("reviewStatus") %></td>
+                         <%} %>
                          <td><button class="edit" data-toggle="modal" data-target="#layer">編輯</button></td>
                       </tr>
                       <%} %>
@@ -128,10 +144,11 @@
                       <hr>
                                           <%
 	Statement smt2 = con.createStatement();
-    Statement smt21 = con.createStatement();
+    Statement smt22 = con.createStatement();
 	String sql2 = "SELECT 序號, 班級, 學號, 姓名, 住址, 審核狀態 FROM studentApply where 審核狀態=1";
 	ResultSet rs2 = smt2.executeQuery(sql2);
-	ResultSet rs21 = smt21.executeQuery(sql21);
+	String sql22="select reviewStatus from reviewStatus where reviewID=1";
+	ResultSet rs22 = smt22.executeQuery(sql22);
 	%>
      
             <div class="FindApply">
@@ -154,8 +171,8 @@
                          <td><%=rs2.getString("學號") %></td>
                          <td><%=rs2.getString("姓名") %></td>
                          <td><%=rs2.getString("住址") %></td>
-                         <%while(rs21.next()){%>
-                         <td><%=rs21.getString("reviewStatus") %></td>
+                         <%while(rs22.next()){%>
+                         <td><%=rs22.getString("reviewStatus") %></td>
                            <%} %>
                          <td><button class="edit" data-toggle="modal" data-target="#layer">編輯</button></td>
                       </tr>
@@ -181,10 +198,11 @@
                       <hr>
                                           <%
 	Statement smt3 = con.createStatement();
-    Statement smt31 = con.createStatement();                           
+    Statement smt32 = con.createStatement();                           
 	String sql3 = "SELECT 序號, 班級, 學號, 姓名, 住址, 審核狀態 FROM studentApply where 審核狀態=2";
 	ResultSet rs3 = smt3.executeQuery(sql3);
-	ResultSet rs31 = smt31.executeQuery(sql31);
+	String sql32="select reviewStatus from reviewStatus where reviewID=2";
+	ResultSet rs32 = smt32.executeQuery(sql32);
 	%>
      
             <div class="FindApply">
@@ -207,8 +225,8 @@
                          <td><%=rs3.getString("學號") %></td>
                          <td><%=rs3.getString("姓名") %></td>
                          <td><%=rs3.getString("住址") %></td>
-                         <%while(rs31.next()){%>
-                         <td><%=rs31.getString("reviewStatus") %></td>
+                         <%while(rs32.next()){%>
+                         <td><%=rs32.getString("reviewStatus") %></td>
                            <%} %>
                          <td><button class="edit" data-toggle="modal" data-target="#layer">編輯</button></td>
                       </tr>
@@ -234,10 +252,11 @@
                       <hr>
                                          <%
 	Statement smt4 = con.createStatement();
-    Statement smt41 = con.createStatement();                                  
+    Statement smt42 = con.createStatement();                                  
 	String sql4 = "SELECT 序號, 班級, 學號, 姓名, 住址, 審核狀態 FROM studentApply where 審核狀態=3";
 	ResultSet rs4 = smt4.executeQuery(sql4);
-	ResultSet rs41 = smt41.executeQuery(sql41);
+	String sql42="select reviewStatus from reviewStatus where reviewID=3";
+	ResultSet rs42 = smt42.executeQuery(sql42);
 	%>
     
             <div class="FindApply">
@@ -260,8 +279,8 @@
                          <td><%=rs4.getString("學號") %></td>
                          <td><%=rs4.getString("姓名") %></td>
                          <td><%=rs4.getString("住址") %></td>
-                         <%while(rs41.next()){%>
-                         <td><%=rs41.getString("reviewStatus") %></td>
+                         <%while(rs42.next()){%>
+                         <td><%=rs42.getString("reviewStatus") %></td>
                            <%} %>
                          <td><button class="edit" data-toggle="modal" data-target="#layer">編輯</button></td>
                       </tr>
@@ -272,9 +291,6 @@
              </div>
              </div>
              </div>
-          
-          
-          
 </div>
    </div>
  </div>
