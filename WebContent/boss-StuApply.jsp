@@ -107,10 +107,10 @@
            <hr>
 	       <form action="boss-StuApply.jsp" method="get">
 	          <table>
-	             <tr><td><a href="">第一筆</a></td>
-	                 <td><a href="">上一筆</a></td>
-	                 <td><a href="">下一筆</a></td>
-	                 <td><a href="">最後一筆</a></td>
+	             <tr><td><a href="boss-StuApply.jsp?view=1">第一筆</a></td>
+	                 <td><a href="boss-StuApply.jsp?view=2">上一筆</a></td>
+	                 <td><a href="boss-StuApply.jsp?view=3">下一筆</a></td>
+	                 <td><a href="boss-StuApply.jsp?view=4">最後一筆</a></td>
 	                 <td> 輸入學號：<input type="text" size="3" name="input">
 	             <input type="submit" value="顯示成績"></td></tr>
 	          </table>
