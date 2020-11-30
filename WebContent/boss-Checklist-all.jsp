@@ -75,7 +75,7 @@
                       
                                           <%
 	Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-	Connection con=DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\yun ping\\Desktop\\新增資料夾\\q\\database.accdb;");
+	Connection con=DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\elene\\Desktop\\q\\q\\q\\database.accdb;");
 	Statement smt= con.createStatement();
 	String sql = "SELECT 序號, 班級, 學號, 姓名, 住址, 審核狀態 FROM studentApply";
 	ResultSet rs = smt.executeQuery(sql);

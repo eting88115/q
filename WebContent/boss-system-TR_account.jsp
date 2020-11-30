@@ -57,56 +57,7 @@
         </div> 
       </form>
       <hr/>
-            <table class="TRaccount">
-               <caption class="title">帳密資料表</caption>
-                  <tr> 
-                     <th class="text-center">姓名</th> 
-                     <th class="text-center">帳號</th>
-                     <th class="text-center">密碼</th>
-                     <th class="text-center">操作</th>
-                  </tr> 
-                      <tr> 
-                         <td>陳文章</td> 
-                         <td>user2@ntunhs.edu.tw</td>
-                         <td>wen8402463</td>
-                         <td>
-                            <button class="deleteTR" data-toggle="modal" data-target="#layer" v-on:click="nowIndex=$index">删除</button>
-                         </td>
-                      </tr> 
-                      <tr> 
-                         <td>林虹陵</td> 
-                         <td>user3@ntunhs.edu.tw</td>
-                         <td>linghon45648</td>
-                         <td>
-                            <button class="deleteTR" data-toggle="modal" data-target="#layer" v-on:click="nowIndex=$index">删除</button>
-                         </td>
-                      </tr>
-                      <tr> 
-                         <td>邱文文</td> 
-                         <td>user4@ntunhs.edu.tw</td>
-                         <td>chiuwen498786</td> 
-                         <td>
-                            <button class="deleteTR" data-toggle="modal" data-target="#layer" v-on:click="nowIndex=$index">删除</button>
-                         </td>
-                      </tr>
-                      <br></br>
-             </table>
-    </div>
-    </div>
- </div>
-</div>
-<br></br>
-<!-- Pagination -->
-  <div class="w3-center w3-padding-32" style="position:relative;left: 150px;">
-    <div class="w3-bar">
-      <a class="w3-button w3-black" href="#">1</a>
-      <a class="w3-button w3-hover-black" href="#">2</a>
-      <a class="w3-button w3-hover-black" href="#">3</a>
-      <a class="w3-button w3-hover-black" href="#">4</a>
-      <a class="w3-button w3-hover-black" href="#">5</a>
-      <a class="w3-button w3-hover-black" href="#">&raquo;</a>
-    </div>
-  </div>
+      
   
  
 <!-- Footer -->
