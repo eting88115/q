@@ -57,7 +57,7 @@
                  </div>
                  
                  <div class="content-group">
-                 <!-- 全部 -->
+<!-- 全部 -->
                  <div class="content content1">
                  <hr>
                          <div class="findstu">
@@ -75,19 +75,20 @@
                       
                                           <%
 	Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-	Connection con=DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\elene\\Desktop\\q\\q\\q\\database.accdb;");
+	Connection con=DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\USER\\git\\q\\database.accdb;");
 	Statement smt= con.createStatement();
 	String sql = "SELECT 序號, 班級, 學號, 姓名, 住址, 審核狀態 FROM studentApply";
 	ResultSet rs = smt.executeQuery(sql);
 	Statement smt21 = con.createStatement();
 	String sql21="select reviewStatus from reviewStatus where reviewID=1";
 	ResultSet rs21 = smt21.executeQuery(sql21);
-	Statement sm31 = con.createStatement();
+	Statement smt31 = con.createStatement();
 	String sql31="select reviewStatus from reviewStatus where reviewID=2";
 	ResultSet rs31 = smt31.executeQuery(sql31);
-	Statement sm41 = con.createStatement();
+	Statement smt41 = con.createStatement();
 	String sql41="select reviewStatus from reviewStatus where reviewID=3";
 	ResultSet rs41 = smt41.executeQuery(sql41);
+
 	%>
     
             <div class="FindApply">
@@ -104,25 +105,29 @@
                      <th class="text-center" scope="col" width="15%">操作</th>
                   </tr>
 	<%
-	while(rs.next()){%>
-                      <tr> 
-                         <td><%=rs.getString("序號") %></td> 
-                         <td><%=rs.getString("班級") %></td>
-                         <td><%=rs.getString("學號") %></td>
-                         <td><%=rs.getString("姓名") %></td>
-                         <td><%=rs.getString("住址") %></td>
-                         <%if(rs21.next()){%>
-                         <td><%=rs21.getString("reviewStatus") %></td>
-                         <%} %>
-                         <%if(rs31.next()){%>
-                         <td><%=rs31.getString("reviewStatus") %></td>
-                         <%} %>
-                         <%if (rs41.next()){%>
-                         <td><%=rs41.getString("reviewStatus") %></td>
-                         <%} %>
-                         <td><button class="edit" data-toggle="modal" data-target="#layer">編輯</button></td>
+	while(rs.next()){%>  
+     <tr> 
+        <td><%=rs.getString("序號") %></td> 
+        <td><%=rs.getString("班級") %></td>
+        <td><%=rs.getString("學號") %></td>
+        <td><%=rs.getString("姓名") %></td>
+        <td><%=rs.getString("住址") %></td>
+        <td><%= rs.getInt("審核狀態")%>=1
+               out.println("待審核")
+            <%= rs.getInt("審核狀態")%>=2   
+               out.println("通過")
+            <%= rs.getInt("審核狀態")%>=3    
+               out.println("不通過")
+        </td>
+        <td><button class="edit" data-toggle="modal" data-target="#layer">編輯</button></td>
                       </tr>
-                      <%} %>
+     <%}
+	%>
+
+
+                      
+	
+
              </table>
              </div>
     </div> 
