@@ -75,7 +75,7 @@
                       
                                           <%
 	Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-	Connection con=DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\USER\\git\\q\\database.accdb;");
+	Connection con=DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\Ting\\Desktop\\q\\database.accdb;");
 	Statement smt= con.createStatement();
 	String sql = "SELECT 序號, 班級, 學號, 姓名, 住址, 審核狀態 FROM studentApply";
 	ResultSet rs = smt.executeQuery(sql);
@@ -135,18 +135,18 @@
                  <!-- 待審核 -->
                  <div class="content content2">
                  <hr>
-                         <div class="findstu">
-                                <form role="box" action="" method="get">
-                                    <div class="find-group">
-                                          <label for="find">搜尋班級:</label>
-                                             <input type="text" id="findClass" class="findClass" placeholder="輸入搜索班級">
-                                          <label for="find">搜索學號:</label>
-                                             <input type="text" id="findAccount" class="findAccount" placeholder="輸入搜索學號">
-                                          <input type="submit"  value="搜索">
-                                          <input type="reset" value="清除">
-                                     </div>
-                                 </form>
-                      <hr>
+                     <div class="findstu">
+                        <form role="box" action="" method="get">
+                      		<div class="find-group">
+                              	<label for="find">搜尋班級:</label>
+                             		<input type="search" id="findClass" class="findClass" placeholder="輸入搜索班級">
+                                <label for="find">搜索學號:</label>
+                                	<input type="search" id="findAccount" class="findAccount" placeholder="輸入搜索學號">
+                                	<input type="submit"  value="搜索">
+                                	<input type="reset" value="清除">
+                            </div>
+                        </form>
+                  <hr>
                                           <%
 	Statement smt2 = con.createStatement();
     Statement smt22 = con.createStatement();
