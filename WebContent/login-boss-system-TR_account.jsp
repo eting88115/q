@@ -40,7 +40,23 @@
     <div class="post" align="center">
       <h1 class="w3-text-teal"><b>宿舍老師帳號設定</b></h1>
     </div>
-         
+         <%
+if(request.getParameter("Tac") !=null &&
+	request.getParameter("Tpw") !=null){
+	Connection con=DriverManager.getConnection("jdbc:ucanaccess://"+objDBConfig.FilePath()+";");
+	Statement smt= con.createStatement();
+	String getpaperdata = "SELECT * FROM Taccount WHERE memberId='"+
+			request.getParameter("Tac")+"' AND Tpw='" +
+			request.getParameter("Tpw")+"'";
+	ResultSet paperrs = smt.executeQuery(getpaperdata);
+	if(paperrs.next()){
+		session.setAttribute("accessId",request.getParameter("Tac"));
+		//session.setMaxInactiveInterval(20); 自動登出
+		response.sendRedirect("login-boss-system-TR_account.jsp");
+	}else
+		out.println("帳號密碼不符！請重新登入");
+}
+%>
            <div class="template" style="position: relative; height: 460px">
     <hr>
     <div class="TRaccount">
