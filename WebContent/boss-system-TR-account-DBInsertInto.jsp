@@ -9,14 +9,15 @@
 	Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
 	Connection con=DriverManager.getConnection("jdbc:ucanaccess://"+objDBConfig.FilePath()+";");
 	Statement smt= con.createStatement();
-	String memberId = new String(request.getParameter("Tac"));
-	String memberPwd = new String(request.getParameter("Tpw"));
+	String Tname = new String(request.getParameter("TRname"));
+	String Tac = new String(request.getParameter("TRaccount"));
+	String Tpw = new String(request.getParameter("TRpassword"));
 	try{
-		smt.execute("INSERT INTO leelab (Tac, Tpw) VALUES('"+Tac+"','"+Tpw+"')");
+		smt.execute("INSERT INTO Taccount (Tac, Tpw) VALUES('"+Tac+"','"+Tpw+"')");
 		con.close();
 		response.sendRedirect("boss-tr-account-modify.jsp?status=newmember");
 	}catch (Exception e){
-		response.sendRedirect("boss-system-TR_account.jsp?status=IDexist");
+		response.sendRedirect("boss-system-TR-account.jsp?status=IDexist");
 	}
 	%>
 </body>

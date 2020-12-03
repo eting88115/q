@@ -44,15 +44,15 @@
            <div class="template" style="position: relative; height: 460px">
     <hr>
     <div class="TRaccount">
-      <form role="box">
+      <form role="box" action="boss-system-TR-account-DBInsertInto.jsp">
         <div class="form-group" style="position:relative;left: 45px;">
           <label for="TRname">宿舍老師名字:</label>
-          <input type="text" id="TRname" class="form-control" v-model="TRname" placeholder="輸入新增老師名字">
+          <input type="text" id="TRname" name="TRname" class="form-control" v-model="TRname" placeholder="輸入新增老師名字">
           <label for="TRaccount">帳號:</label>
-          <input type="text" id="TRaccount" class="form-control" v-model="TRaccount" placeholder="輸入新增老師帳號">
+          <input type="text" id="TRaccount" name="TRaccount" class="form-control" v-model="TRaccount" placeholder="輸入新增老師帳號">
           <label for="TRpassword">密碼:</label>
-          <input type="text" id="TRpassword" class="form-control" v-model="TRpassword" placeholder="輸入新增老師密碼">
-            <input type="button"  value="新增" class="btn btn-primary" v-on:click="add()"/>
+          <input type="text" id="TRpassword" name="TRpassword" class="form-control" v-model="TRpassword" placeholder="輸入新增老師密碼">
+            <input type="submit"  value="新增" class="btn btn-primary" />
             <input type="reset"  value="清除" class="btn btn-danger"/>
         </div> 
       </form>
