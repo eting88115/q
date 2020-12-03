@@ -27,7 +27,7 @@
     <div class="form-fields d-grid"> 
     </div>
   </div>
-
+<form action="signUp_DB.jsp">
   <div class="w3-row" style="height:380px">
     <div class="post" style=" margin-left: 600px">
       <h1 class="w3-text-teal"><b>註冊帳號</b></h1>
@@ -44,15 +44,16 @@
               <tr><td><label for="address">住址:</label><input type="text" name="address" placeholder="請輸入住址"></td>
                   <td><label for="password">密碼:</label><input type="text" name="password" placeholder="請輸入帳號"></td></tr><tr><td></td><td></td></tr> 
          </table>
-         <script>
-         string = "此帳號已註冊過，請確認帳號與密碼是否正確，若還是無法使用               請洽詢宿舍老師 wen123456@ntunhs.edu.tw";
-         </script>
          <div class="login-button2">
+         <%if (request.getParameter("status")!="" && request.getParameter("status")!=null){
+							if(request.getParameter("status").equals("Saccount")){ %>
+							<p><font color="red">帳號已存在，請登入或重新註冊!</font></p>
+						<%}else{} }%>
             <input type="submit" a href="javascript:alert(string)"  value="確認註冊">
             <input type="reset" value="取消註冊">
          </div>
-         <a href="javascript:alert(string)">此帳號已註冊過</a>
   </div>
+  </form>
   </div>
 <!-- Footer -->
 <%@ include file="pageend2.jsp" %>

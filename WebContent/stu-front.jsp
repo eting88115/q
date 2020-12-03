@@ -1,6 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
+<%
+if(request.getParameter("Saccount") !=null &&
+	request.getParameter("Spw") !=null){
+	Connection con=DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\Ting\\Desktop\\q\\q\\database.accdb;");
+	Statement smt= con.createStatement();
+	String getpaperdata = "SELECT * FROM Saccount WHERE Saccount='"+
+			request.getParameter("Saccount")+"' AND Spw='" +
+			request.getParameter("Spw")+"'";
+	ResultSet paperrs = smt.executeQuery(getpaperdata);
+	if(paperrs.next()){
+		session.setAttribute("Saccount",request.getParameter("Saccount"));
+		//session.setMaxInactiveInterval(20); 自動登出
+		response.sendRedirect("stu-login_post.jsp");
+	}else
+		out.println("帳號密碼不符！請重新登入");
+}
+%>
 <html lang="tc">
 <head>
 <meta charset="BIG5">
