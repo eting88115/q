@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=BIG5"
-    pageEncoding="BIG5" import="java.sql.*"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8" import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="BIG5">
-<title>boss-StuApply</title>
+<meta charset="utf-8">
+<title>boss-searchApply</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css\styles.css" >
 <link rel="stylesheet" href="css\styles2.css" >
@@ -15,74 +15,54 @@
 <body>
 
 <!-- Header --->
-<%@ include file="menu2.jsp" %>
+<%@ include file="menu.jsp" %>
 <!-- Sidebar -->
  <nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
      <i class="fa fa-remove"></i>
   </a>
-    <%@ include file="left2.jsp" %>
+     <%@ include file="left2.jsp" %>
  </nav>
  
 <!-- Header -->
+<%@ include file="menu.jsp" %>
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
 <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
-<div class="w3-main" style="margin-left:100px; height: 700px">
+<div class="w3">
 
   <div class="w3-row w3-padding-64">
     <div class="form-fields d-grid"> 
     </div>
   </div>
 
-  
-    <div class="apply">
-   <%
-	// Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-	// Connection con =DriverManager.getConnection("jdbc:odbc:dataBase") ;
-
+  <div class="w3-row" style="height:360px">
+    <div class="post" style=" margin-left: 650px">
+    <h1 class="w3-text-teal"><b>Áî≥Ë´ãÂñÆÊü•Ë©¢‰∏ªÁï´Èù¢</b></h1>
+	</div>
+	
+	<div class="search-studentName" style="margin-left: 620px;margin-top: 50px">
+	<form action="boss-StuApply.jsp" method="post">
+	<%
 	Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
 	Connection con=DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\USER\\git\\q\\database.accdb;");
 	Statement smt= con.createStatement();
-	String name = new String(request.getParameter("name").getBytes("ISO-8859-1"));
-	String sql = "SELECT * FROM studentApply WHERE ©m¶W ='" + name + "'";
-	String color;
+	String sql = "SELECT ÂßìÂêç FROM studentApply";
 	ResultSet rs = smt.executeQuery(sql);
-	rs.next();
-	
 	%>
-         <table border="1" style="margin-left:70px; width: 700px;height: 20px">
-         <font color="#009393" size="5" style="margin-left:550px"><%=rs.getString("æ«∏π") %><%=rs.getString("©m¶W") %>_•”Ω–≥Ê</font>
-         </table>
-	 <div class="ApplyDetail">
-         <form method="post" action="boss-StuApply2.jsp">
-            <table border="1" style="margin-left:50px; width: 700px;height: 300px">
-                <tr><td><label for="name">©m¶W:<%=rs.getString("©m¶W") %></label></td>
-                    <td><label for="address">¶Ìß}:<%=rs.getString("¶Ìß}") %></label></td></tr><tr><td></td><td></td></tr>
-                <tr><td><label for="account">æ«∏π:<%=rs.getString("¶Ìß}") %></label></td>
-                    <td><label for="phone">πq∏‹:<%=rs.getString("πq∏‹") %></label></td></tr><tr><td></td><td></td></tr>
-                <tr><td><label for="sex">© ßO:<%=rs.getString("© ßO") %></label></td>
-                    <td><label for="photo">§·ƒy∏ÍÆ∆πœ§˘¿…:<%=rs.getString("© ßO") %></label></td></tr><tr><td></td><td></td></tr>
-                <tr><td><label for="department">¨Ï®t:<%=rs.getString("© ßO") %></label></td>
-                    <td><label for="email">´HΩc:<%=rs.getString("´HΩc") %></label></td></tr><tr><td></td><td></td></tr>
-                <tr><td><label for="classroom">ØZØ≈:<%=rs.getString("ØZØ≈") %></label></td>
-                    <td><label for="audit">ºfÆ÷™¨∫A:</label>
-                        <select name="audit" id="audit">
-                            <option value="0" selected>Ω–øÔæ‹</option>
-                            <option value="≥qπL">≥qπL</option>
-                            <option value="•º≥qπL">•º≥qπL</option>
-                        </select>
-                    </td></tr><tr><td></td><td></td></tr> 
-             </table> 
-           <div class="button3">
-             <input type="submit"  style="width:100px" value="¿x¶s">
-             
-           </div>
-          </form>
-     </div>        
-    </div>
-</div>
+	<label for="search-student" style="font-weight: bold ;font-size: 20px ;">Ë´ãÈÅ∏ÊìáÂ≠∏ÁîüÂßìÂêç:</label>
+	<select name="name" style="width:90px; height:25px; font-size: 18px">
+           <%while(rs.next()){ %>
+              <option value="<%=rs.getString("ÂßìÂêç")%>"><%=rs.getString("ÂßìÂêç") %></option>
+          <%}con.close();%>   
+ 	</select>
+	<input type="submit" value="Êü•Ë©¢ÊàêÁ∏æ">
+	</form>
+	</div>
+	</div>
+	
+	</div>
 <!-- Footer -->
 <%@ include file="pageend.jsp" %>
 </html>
