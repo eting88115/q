@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=BIG5"
+    pageEncoding="BIG5" import="java.sql.*"%>
 <!DOCTYPE html>
-<html lang="tc">
+<html>
 <head>
-<meta charset="utf-8">
+<meta charset="BIG5">
 <title>boss-StuApply</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css\styles.css" >
@@ -41,41 +41,43 @@
    <%
 	// Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
 	// Connection con =DriverManager.getConnection("jdbc:odbc:dataBase") ;
+
 	Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-	Connection con=DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\yun ping\\Desktop\\新增資料夾\\q\\database.accdb;");
+	Connection con=DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\USER\\git\\q\\database.accdb;");
 	Statement smt= con.createStatement();
 	String name = new String(request.getParameter("name").getBytes("ISO-8859-1"));
-	String sql = "SELECT * FROM studentApply WHERE 姓名 ='" + name + "'";
+	String sql = "SELECT * FROM studentApply WHERE �m�W ='" + name + "'";
 	String color;
-	ResultSet rs = smt.executeQuery(sql2);
+	ResultSet rs = smt.executeQuery(sql);
 	rs.next();
 	
 	%>
          <table border="1" style="margin-left:70px; width: 700px;height: 20px">
-         <font color="#009393" size="5" style="margin-left:550px"><%=rs.getString("學號") %><%=rs.getString("姓名") %>_申請單</font>
+         <font color="#009393" size="5" style="margin-left:550px"><%=rs.getString("�Ǹ�") %><%=rs.getString("�m�W") %>_�ӽг�</font>
          </table>
 	 <div class="ApplyDetail">
          <form method="post" action="boss-StuApply2.jsp">
             <table border="1" style="margin-left:50px; width: 700px;height: 300px">
-                <tr><td><label for="name">姓名:<%=rs.getString("姓名") %></label></td>
-                    <td><label for="address">住址:<%=rs.getString("住址") %></label></td></tr><tr><td></td><td></td></tr>
-                <tr><td><label for="account">學號:<%=rs.getString("住址") %></label></td>
-                    <td><label for="phone">電話:<%=rs.getString("電話") %></label></td></tr><tr><td></td><td></td></tr>
-                <tr><td><label for="sex">性別:<%=rs.getString("性別") %></label></td>
-                    <td><label for="photo">戶籍資料圖片檔:<%=rs.getString("性別") %></label></td></tr><tr><td></td><td></td></tr>
-                <tr><td><label for="department">科系:<%=rs.getString("性別") %></label></td>
-                    <td><label for="email">信箱:<%=rs.getString("信箱") %></label></td></tr><tr><td></td><td></td></tr>
-                <tr><td><label for="classroom">班級:<%=rs.getString("班級") %></label></td>
-                    <td><label for="audit">審核狀態:</label>
+                <tr><td><label for="name">�m�W:<%=rs.getString("�m�W") %></label></td>
+                    <td><label for="address">���}:<%=rs.getString("���}") %></label></td></tr><tr><td></td><td></td></tr>
+                <tr><td><label for="account">�Ǹ�:<%=rs.getString("���}") %></label></td>
+                    <td><label for="phone">�q��:<%=rs.getString("�q��") %></label></td></tr><tr><td></td><td></td></tr>
+                <tr><td><label for="sex">�ʧO:<%=rs.getString("�ʧO") %></label></td>
+                    <td><label for="photo">���y��ƹϤ���:<%=rs.getString("�ʧO") %></label></td></tr><tr><td></td><td></td></tr>
+                <tr><td><label for="department">��t:<%=rs.getString("�ʧO") %></label></td>
+                    <td><label for="email">�H�c:<%=rs.getString("�H�c") %></label></td></tr><tr><td></td><td></td></tr>
+                <tr><td><label for="classroom">�Z��:<%=rs.getString("�Z��") %></label></td>
+                    <td><label for="audit">�f�֪��A:</label>
                         <select name="audit" id="audit">
-                            <option value="0" selected>請選擇</option>
-                            <option value="通過">通過</option>
-                            <option value="未通過">未通過</option>
+                            <option value="0" selected>�п��</option>
+                            <option value="�q�L">�q�L</option>
+                            <option value="���q�L">���q�L</option>
                         </select>
                     </td></tr><tr><td></td><td></td></tr> 
              </table> 
            <div class="button3">
-             <input type="submit"  style="width:100px" value="儲存">
+             <input type="submit"  style="width:100px" value="�x�s">
+             
            </div>
           </form>
      </div>        

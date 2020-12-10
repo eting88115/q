@@ -1,5 +1,5 @@
 <%@page contentType="text/html"%>
-<%@page pageEncoding="BIG5"%>
+<%@page pageEncoding="utf-8"%>
 <%@page import="java.sql.*"%>
 <html>
 	<head><title>Select</title></head>
@@ -8,18 +8,18 @@
 	// Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
 	// Connection con =DriverManager.getConnection("jdbc:odbc:dataBase") ;
 	Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-	Connection con=DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\yun ping\\Desktop\\·s¼W¸ê®Æ§¨\\aaa\\database.accdb;");
+	Connection con=DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\yun ping\\Desktop\\æ–°å¢žè³‡æ–™å¤¾\\aaa\\database.accdb;");
 	Statement smt= con.createStatement();
 	String sql = "SELECT * FROM personData ";
 	ResultSet rs = smt.executeQuery(sql);
 	%>
-	¨ú¥X¸ê®Æªí¸ê®Æ
+	å–å‡ºè³‡æ–™è¡¨è³‡æ–™
 	<table border='1'>
 	<tr>
-	<th>½s¸¹</th>
-	<th>©m¦W</th>
-	<th>¦í§}</th>
-	<th>¹q¸Ü</th>
+	<th>ç·¨è™Ÿ</th>
+	<th>å§“å</th>
+	<th>ä½å€</th>
+	<th>é›»è©±</th>
 	</tr>
 	<%
 	while(rs.next()){%>

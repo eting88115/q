@@ -1,13 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=BIG5"
-    pageEncoding="BIG5" import="java.sql.*"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8" import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="BIG5">
+<meta charset="utf-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<%! int num=1; //«Å§i¥ş°ìÅÜ¼Ænum %>
+	<%! int num=1; //å®£å‘Šå…¨åŸŸè®Šæ•¸num %>
 	<%	Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
 		Connection con=DriverManager.getConnection("jdbc:ucanaccess://D:\\Java\\Access\\dataBase.accdb;");
 	Statement smt= con.createStatement
@@ -15,29 +15,29 @@
 	
 	String sql = "SELECT * FROM grades";
 	ResultSet rs = smt.executeQuery(sql);
-	rs.last(); //±N«ü¼Ğ²¾¦Ü³Ì«á¤@µ§¸ê®Æ
-	int last = rs.getRow(); //¨ú±oÁ`¸ê®Æµ§¼Æ
+	rs.last(); //å°‡æŒ‡æ¨™ç§»è‡³æœ€å¾Œä¸€ç­†è³‡æ–™
+	int last = rs.getRow(); //å–å¾—ç¸½è³‡æ–™ç­†æ•¸
 	String view = request.getParameter("view");
 	if(view != null){
 		int select = Integer.parseInt(view);
 		switch(select){
 		case 1:
-			num = 1;   //¿ï¾ÜÂsÄı²Ä¤@µ§,num ³]¬° 1
+			num = 1;   //é¸æ“‡ç€è¦½ç¬¬ä¸€ç­†,num è¨­ç‚º 1
 			break;
 		case 2:
-			if(num == 1)  //¿ï¾ÜÂsÄı¤W¤@µ§,num »¼´î 1
+			if(num == 1)  //é¸æ“‡ç€è¦½ä¸Šä¸€ç­†,num éæ¸› 1
 				num = 1;
 			else
 				num--;
 			break;
 		case 3:
-			if(num == last)  //¿ï¾ÜÂsÄı¤U¤@µ§,num »¼¼W 1
+			if(num == last)  //é¸æ“‡ç€è¦½ä¸‹ä¸€ç­†,num éå¢ 1
 				num = last;
 			else
 				num++;
 			break;
 		case 4:
-			num = last; //¿ï¾ÜÂsÄı³Ì«á¤@µ§,num ³]¬° last
+			num = last; //é¸æ“‡ç€è¦½æœ€å¾Œä¸€ç­†,num è¨­ç‚º last
 			break;
 		default:
 		}
@@ -45,11 +45,11 @@
 	String input = request.getParameter("input");
 	if(input != null)
 		num = Integer.parseInt(input);
-	rs.absolute(num);  //±N«ü¼Ğ²¾°Ê¨ì²Änumµ§¸ê®Æ¤¸¯À
+	rs.absolute(num);  //å°‡æŒ‡æ¨™ç§»å‹•åˆ°ç¬¬numç­†è³‡æ–™å…ƒç´ 
 	%>
 	
-	<font color="red" size="5"><b><%=rs.getString(1) %></b></font>¸¹
-	<font color="blue" size="5"><%=rs.getString(2) %></font>ªº¦¨ÁZ
+	<font color="red" size="5"><b><%=rs.getString(1) %></b></font>è™Ÿ
+	<font color="blue" size="5"><%=rs.getString(2) %></font>çš„æˆç¸¾
 	<hr>
 	
 	<%
@@ -58,21 +58,21 @@
 	int intMath = rs.getInt(5);
 	int intSum = intChinese + intEnglish + intMath ;
 	
-	out.println("°ê¤å=" + intChinese +"<br>");
-	out.println("­^¤å=" + intEnglish +"<br>");
-	out.println("¼Æ¾Ç=" + intMath +"<br><br>");
-	out.println("<b>¥­§¡=" + intSum/3 +"</b><br>");
-	out.println("<b>Á`¤À=" + intSum +"</b><br>");
+	out.println("åœ‹æ–‡=" + intChinese +"<br>");
+	out.println("è‹±æ–‡=" + intEnglish +"<br>");
+	out.println("æ•¸å­¸=" + intMath +"<br><br>");
+	out.println("<b>å¹³å‡=" + intSum/3 +"</b><br>");
+	out.println("<b>ç¸½åˆ†=" + intSum +"</b><br>");
 	%>
 	<hr>
 	<form action="usingBrowser.jsp" method="get">
 	<table>
-	<tr><td><a href="usingBrowser.jsp?view=1">²Ä¤@µ§</a></td>
-	<td><a href="usingBrowser.jsp?view=2">¤W¤@µ§</a></td>
-	<td><a href="usingBrowser.jsp?view=3">¤U¤@µ§</a></td>
-	<td><a href="usingBrowser.jsp?view=4">³Ì«á¤@µ§</a></td>
-	<td> ¿é¤J¾Ç¸¹¡G<input type="text" size="3" name="input">
-	<input type="submit" value="Åã¥Ü¦¨ÁZ"></td></tr>
+	<tr><td><a href="usingBrowser.jsp?view=1">ç¬¬ä¸€ç­†</a></td>
+	<td><a href="usingBrowser.jsp?view=2">ä¸Šä¸€ç­†</a></td>
+	<td><a href="usingBrowser.jsp?view=3">ä¸‹ä¸€ç­†</a></td>
+	<td><a href="usingBrowser.jsp?view=4">æœ€å¾Œä¸€ç­†</a></td>
+	<td> è¼¸å…¥å­¸è™Ÿï¼š<input type="text" size="3" name="input">
+	<input type="submit" value="é¡¯ç¤ºæˆç¸¾"></td></tr>
 	</table>
 	</form>
 </body>

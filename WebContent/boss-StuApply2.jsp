@@ -38,7 +38,7 @@
   </div>
   <%! int num=1; //宣告全域變數num %>
 	<%	Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-		Connection con=DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\yun ping\\Desktop\\新增資料夾\\q\\database.accdb;");
+		Connection con=DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\USER\\git\\q\\database.accdb;");
 	Statement smt= con.createStatement
 			(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
 	String sql = "SELECT 姓名, 住址, 學號, 電話, 性別, image, 科系, 信箱, 班級 FROM studentApply ";

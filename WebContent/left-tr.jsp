@@ -19,7 +19,7 @@
      <i class="fa fa-remove"></i>
   </a>
 <head>
-<meta charset="BIG5">
+<meta charset="utf-8">
 <title>JSP Page</title>
 </head>
 <body>

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="tc">
 <head>
-<meta charset="BIG5">
+<meta charset="utf-8">
 <title>boss-edit-post</title>
 </head>
 

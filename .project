@@ -3,6 +3,7 @@
 	<name>aaa</name>
 	<comment></comment>
 	<projects>
+		<project>leelabTemplate</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

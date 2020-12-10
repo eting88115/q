@@ -1,5 +1,5 @@
 <%@page contentType="text/html"%>
-<%@page pageEncoding="BIG5"%>
+<%@page pageEncoding="utf-8"%>
 <%@page import="java.sql.*"%>
 
 <%
@@ -15,7 +15,7 @@ if(request.getParameter("Saccount") !=null &&
 	ResultSet members = smt.executeQuery(getMemberData);
 	if(members.next()){
 		session.setAttribute("Saccount",request.getParameter("Saccount"));
-		//session.setMaxInactiveInterval(20); �۰ʵn�X
+		//session.setMaxInactiveInterval(20); 自動登出
 		response.sendRedirect("stu-login_post.jsp");
 	}else
 		response.sendRedirect("login.jsp?status=loginerror");

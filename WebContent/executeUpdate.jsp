@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=BIG5"
-    pageEncoding="BIG5" import="java.sql.*"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8" import="java.sql.*"%>
 <!DOCTYPE html >
 <html>
 <head>
@@ -11,9 +11,9 @@
 	// Connection con =DriverManager.getConnection("jdbc:odbc:dataBase") ;
 	Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
 		Connection con=DriverManager.getConnection(
-		"jdbc:ucanaccess://C:\\Users\\yun ping\\Desktop\\·s¼W¸ê®Æ§¨\\aaa\\database.accdb;");
+		"jdbc:ucanaccess://C:\\Users\\yun ping\\Desktop\\æ–°å¢žè³‡æ–™å¤¾\\aaa\\database.accdb;");
 	Statement smt= con.createStatement();
-	out.println("·s¼W¸ê®Æ¦Üperson");
+	out.println("æ–°å¢žè³‡æ–™è‡³person");
 	smt.executeUpdate("INSERT INTO personData(ID, personName, address,phone) VALUES('2', 'Joan','Taipei','000');");
 	
 	con.close();
